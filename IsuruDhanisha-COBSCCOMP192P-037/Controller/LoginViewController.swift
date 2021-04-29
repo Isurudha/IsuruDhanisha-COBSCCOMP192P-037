@@ -60,7 +60,7 @@ class LoginViewController: UIViewController {
             
             let sessionmanager = SessionManager()
             sessionmanager.SaveUserLogin()
-            self.performSegue(withIdentifier: "tabController", sender: nil)
+            self.performSegue(withIdentifier: "Store", sender: nil)
         }
     }
     

@@ -21,11 +21,14 @@ class MenuViewController: UIViewController, UIImagePickerControllerDelegate & UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        ImageView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: Selector(("didTapImageView")))
+        ImageView.addGestureRecognizer(tap)
         
     }
     
     @IBAction func btnAddPressed(_ sender: Any) {
+        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
@@ -61,7 +64,7 @@ class MenuViewController: UIViewController, UIImagePickerControllerDelegate & UI
         picker.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func didTapImageView(_ sender: UITapGestureRecognizer) {
+    @objc func didTapImageView(_ sender: UITapGestureRecognizer) {
         let picker = UIImagePickerController()
                picker.sourceType = .photoLibrary
                picker.delegate = self

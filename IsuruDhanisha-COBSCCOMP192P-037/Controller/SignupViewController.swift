@@ -66,13 +66,15 @@ class SignupViewController: UIViewController {
     }
     
     func saveUserData(user: User){
+        let randomInt = Int.random(in: 1..<10000)
         let userData = [
             "Username" : user.username,
             "UserEmail" : user.userEmail,
             "UserPhone" : user.userPhone,
             "UserPassword" : user.userPassword]
         
-        self.ref.child("users").child(user.userEmail.replacingOccurrences(of: "@", with: "_")).setValue(user){
+        self.ref.child("users").child("\(randomInt)").setValue(userData)
+        {
             (error, ref) in
             
             if let err = error{
